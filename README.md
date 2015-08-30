@@ -1,5 +1,5 @@
 CSS Grid Layout
------------------
+---------------
 
 ## What is CSS Grid Layout
 
@@ -19,14 +19,14 @@ The first proposal of the Grid developed my Microsoft, so that it's implemented 
 
 ##### Google Chrome
 
-Go to `chrome://flags` URL, then scroll to Enable experimental Web Platform features option and then enable it, then you will be asked to Relaunch Chrome.
+Go to `chrome://flags` URL, then scroll to `Enable experimental Web Platform features` option and then enable it, then you will be asked to Relaunch Chrome.
 
-![screen shot 2015-08-29 at 1 10 55 pm](https://cloud.githubusercontent.com/assets/626005/9561658/8f9dedb0-4e4f-11e5-819c-46c6fffacfac.png)
+![chrome-config](https://cloud.githubusercontent.com/assets/626005/9566281/bcbb9d78-4eff-11e5-8784-76400fce453e.jpg)
 
 ##### Firefox
-Open a new tab and going to the [about:config](about:config), then search for `layout.css.grid.enabled` then double click or enter to activate it.
+Open a new tab and going to the `about:config`, then search for `layout.css.grid.enabled` then double click or enter to activate it.
 
-![screen shot 2015-08-29 at 1 10 31 pm](https://cloud.githubusercontent.com/assets/626005/9561657/8f619fd6-4e4f-11e5-9be3-5dfbcd1575d8.png)
+![firefox-config](https://cloud.githubusercontent.com/assets/626005/9566280/bcb081b8-4eff-11e5-8f78-bce7fa0a6ded.jpg)
 
 Let's see a simple example, imagine we need to create a page with full height 4 columns.
 
