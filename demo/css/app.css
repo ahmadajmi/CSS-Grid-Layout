@@ -12,6 +12,7 @@ body { margin: 0; font-family: Arial; }
 .search   { background-color: #6C7A89; }
 .messages { background-color: #59ABE3; }
 
+/*
 .grid {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
@@ -25,4 +26,27 @@ body { margin: 0; font-family: Arial; }
   }
 
   .messages { grid-column: 1; grid-row: 1; }
+}*/
+
+.grid {
+  display: grid;
+  grid-template-areas: "tweets replies"
+                       "search messgaes";
+
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50vh 50vh;
 }
+
+@media screen and (max-width: 1024px) {
+  .grid {
+    display: grid;
+
+    grid-template-areas: "messages search"
+                       "replies tweets";
+
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50vh 50vh;
+  }
+}
+
+.tweets { grid-area: replies; }
