@@ -1,60 +1,74 @@
-CSS Grid Layout
----------------
+# CSS Grid Layout
 
 ## What is CSS Grid Layout
 
 > This CSS module defines a two-dimensional grid-based layout system, optimized for user interface design. In the grid layout model, the children of a grid container can be positioned into arbitrary slots in a flexible or fixed predefined layout grid.
 
-The core idea about the Grid is to partition a web page into a defined set of rows and columns, then it gives us the ability to position and size those partitions based on the rows and columns.
+The core idea about the Grid is to partition a web page into a defined set of rows and columns, then it gives us the ability to position and size those partitions based on the rows and columns we just created.
 
-The initial motivation behind the Flexbox and Grid layout is to replace float and table layout hacks.
-
-Write about the troubles and the current problems about creating a layout using floats, clearfix and so on and how CSS Grid layout can help.
+The initial motivation behind Grid layout is to improve and making layout creation very easy to do and to understand, so we no longer need to do the old ways like HTML tables, floats and clearfix.
 
 ## Browser Support
 
-Before we can see an example, we need to talk about the current browser support and how to enable in the current browsers.
+Before we can see an example, we need to talk about the current browser support and how to enable this feature in the current browsers.
 
-The first proposal of the Grid developed my Microsoft, so that it's implemented in IE10. 
+The first proposal of the Grid developed my Microsoft, so that it's implemented in IE10.
 
 ##### Google Chrome
 
-Go to `chrome://flags` URL, then scroll to `Enable experimental Web Platform features` option and then enable it, then you will be asked to Relaunch Chrome.
+Go to `chrome://flags` URL, then scroll to `Enable experimental Web Platform features` flag and then enable it, then you will be asked to Relaunch Chrome.
 
 ![chrome-config](https://cloud.githubusercontent.com/assets/626005/9566281/bcbb9d78-4eff-11e5-8784-76400fce453e.jpg)
 
 ##### Firefox
-Open a new tab and going to the `about:config`, then search for `layout.css.grid.enabled` then double click or enter to activate it.
+Go to `about:config`, then search for `layout.css.grid.enabled` then double click or enter to activate it.
 
 ![firefox-config](https://cloud.githubusercontent.com/assets/626005/9566280/bcb081b8-4eff-11e5-8f78-bce7fa0a6ded.jpg)
 
-Let's see a simple example, imagine we need to create a page with full height 4 columns.
+## Example
 
-![screen shot 2015-08-29 at 12 33 21](https://cloud.githubusercontent.com/assets/626005/9561556/89701008-4e4a-11e5-9137-12e271ddcf76.png)
+Let's see a starter example to see the power of the Grid Module, imagine we need to create a page with full height 4 columns.
+
+![vertical-grid](https://cloud.githubusercontent.com/assets/626005/9573251/59eb41ce-4fba-11e5-92d8-d16ee6bdfc6b.jpg)
 
 ``` html
 <div class="grid">
-  <div class="tweets box">Tweets</div>
-  <div class="replies box">Replies</div>
-  <div class="search box">Search</div>
-  <div class="messages box">Messages</div>
+  <div class="tweets">Tweets</div>
+  <div class="replies">Replies</div>
+  <div class="search">Search</div>
+  <div class="messages">Messages</div>
 </div>
 ```
 
 ``` css
 .grid {
-  /* Set up the display property to grid */
+  /* Set the display property to grid, this is mandatory */
   display: grid;
+  
   /* Divide the page into 4 columns each one is 25% */
   grid-template-columns: 25% 25% 25% 25%;
-  /* Create a one row and set the height 10 be 100vh */
+  
+  /* Create a one row and set the height be 100vh */
   grid-template-rows: 100vh;
 }
 ```
 
-In small screen we can changes this a little bit to show the 4 boxes in two columns and two rows as.
+The `grid-template-columns` responsibility is to divide the page into columns, in our case we did a 4 columns each one with 25% of the page width.
+
+The `grid-template-rows` use case is to create rows, in our example we only need one row, if we set the columns to be just 2 we may need to create two rows each is `50vh` height.
+
+``` css
+.grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50vh 50vh;
+}
+```
+So this will give us a 4 boxes layout like
 
 ![screen shot 2015-08-29 at 12 34 18](https://cloud.githubusercontent.com/assets/626005/9561557/899242fe-4e4a-11e5-8f35-630fce7b84e6.png)
+
+We can also achieve the above example in small screens by wrapping the code inside a media query
 
 ``` css
 @media screen and (max-width: 1024px) {
@@ -66,6 +80,12 @@ In small screen we can changes this a little bit to show the 4 boxes in two colu
   }
 }
 ```
+
+### Next TODO
+
+source order
+http://www.sitepoint.com/should-html-dom-order-match-visual-layout/
+http://zurb.com/word/source-order
 
 A very interesting feature of the Grid Module is the ability change the order of the page partitions without changing the semantic of the content, imagine in the example about for small screens we want to bring the search section to be the first section in the first column and the first row.
 
@@ -80,9 +100,6 @@ A very interesting feature of the Grid Module is the ability change the order of
   .messages { grid-column: 1; grid-row: 1; }
 }
 ```
-
-![screen shot 2015-08-27 at 11 35 05 am](https://cloud.githubusercontent.com/assets/626005/9517355/d562521a-4caf-11e5-98ef-e1311c15f5f1.png)
-![screen shot 2015-08-27 at 11 35 29 am](https://cloud.githubusercontent.com/assets/626005/9517356/d5700e64-4caf-11e5-882f-3088a1b02700.png)
 
 #### using grid-template-areas
 
@@ -141,5 +158,6 @@ Try also the example of sticky footer
 #### Drafts
 A very interesting feature of the Grid Module is the ability to adapt the content layout to changes in different devices and viewports without changing the semantic of the content.
 
+[caniuse suppport]:http://caniuse.com/#feat=css-grid
 [CSS Grid Layout Module Level 1]:https://drafts.csswg.org/css-grid/
 [Grid by Example]:http://gridbyexample.com/
