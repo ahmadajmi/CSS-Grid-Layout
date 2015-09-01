@@ -81,13 +81,7 @@ We can also achieve the above example in small screens by wrapping the code insi
 }
 ```
 
-### Next TODO
-
-source order
-http://www.sitepoint.com/should-html-dom-order-match-visual-layout/
-http://zurb.com/word/source-order
-
-A very interesting feature of the Grid Module is the ability change the order of the page partitions without changing the semantic of the content, imagine in the example about for small screens we want to bring the search section to be the first section in the first column and the first row.
+A very interesting feature of the Grid Module is the ability to rearrange the page partitions visually without without editing HTML or we can call it the source order. Imagine in the example about for small screens we want to bring the messages section to be the first section, so we need to move it to the first column in the first row.
 
 ![screen shot 2015-08-29 at 12 48 29](https://cloud.githubusercontent.com/assets/626005/9561604/55085a3a-4e4c-11e5-9f86-1220f260bb16.png)
 
@@ -100,6 +94,9 @@ A very interesting feature of the Grid Module is the ability change the order of
   .messages { grid-column: 1; grid-row: 1; }
 }
 ```
+Another use case for the source order is the order of the sidebar when it's position on the left on the desktop and the order of HTML, in mobile we can shift it to the bottom.
+
+![screen shot 2015-09-01 at 8 46 52 am](https://cloud.githubusercontent.com/assets/626005/9597835/093d916a-5086-11e5-97f2-c8e7da9ad672.png)
 
 #### using grid-template-areas
 
