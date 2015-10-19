@@ -1,14 +1,12 @@
 # CSS Grid Layout
 
-## What is CSS Grid Layout
+Every single website we are doing today has grid layout, sometimes we use a ready to go CSS frameworks to handle the layout creation for us, and each framework try to create layout differently. Some times we use float, box-sizing, and clearfix, but a new, shiny, and native support comes with [CSS Grid Layout Module](https://drafts.csswg.org/css-grid-1/).
 
-> This CSS module defines a two-dimensional grid-based layout system, optimized for user interface design. In the grid layout model, the children of a grid container can be positioned into arbitrary slots in a flexible or fixed predefined layout grid.
+The initial motivation behind Grid layout is to make layout creation easily, so we no longer need to implement layouts with HTML tables, floats and clearfix hacks, the Grid will be the native support for creating grids in the browser.
 
 The core idea about the Grid Layout is to partition the web page into a defined set of rows and columns, then we have the ability to position and size those partitions based on the rows and columns we just created.
 
-The initial motivation behind Grid layout is to improve and making layout creation very easy to do and to understand, so we no longer need to implement layouts with HTML tables, floats and clearfix hacks, the Grid will be the native support for creating grids in the browser.
-
-In this introduction we will go through and introduce the new CSS Module, what is the current browser support, how it works with some examples.
+In this introduction we will introduce the new *CSS Grid Layout Module*, what is the current browser support, how it works with some examples.
 
 ## Browser Support
 
@@ -29,6 +27,10 @@ Go to `about:config`, then search for `layout.css.grid.enabled` then double clic
 ![firefox-config](https://cloud.githubusercontent.com/assets/626005/9566280/bcb081b8-4eff-11e5-8f78-bce7fa0a6ded.jpg)
 
 I have tried Firefox but it seems like there are some problems rendering the layout, so we can use Google Chrome.
+
+## What is CSS Grid Layout
+
+> This CSS module defines a two-dimensional grid-based layout system, optimized for user interface design. In the grid layout model, the children of a grid container can be positioned into arbitrary slots in a flexible or fixed predefined layout grid.
 
 ## Grid Layout Example
 
@@ -107,26 +109,52 @@ A use case for this when we need to set the position of the sidebar based on the
 
 ### Grid Layout Module Concepts
 
-#### Grid Element
+There are some basic concepts that we need to know for a better understanding the new Module.
 
+**Grid Element**
 This is the basic building block.
 
 **Grid Lines**
 
+horizontal and vertical dividing lines
+
 The horizontal and vertical dividing lines of the grid, lines exists on either side of a column or a row. We can refer to a grid line by a numerical index or by a specific name.
 
+![grid-lines](https://cloud.githubusercontent.com/assets/626005/9755781/266a84f0-56d5-11e5-92f4-cc40fb3154d8.png)
+
 **Grid Track**
+
+A generic term for column or row
+
 A generic term of for a grid column or grid row, or it's the space between to adjacent grid lines and each track is assigned a sizing function which controls how wide or tall the column or row may grow.
 
 **Grid Cell**
+
+Smallest area bounded by grid lines
+
 Is the smallest unit of the grid and it is the space between two adjacent row and two adjacent column grid lines.
 
-**Grid Area**
-is the logical space used to layout one or more grid items bound by 4 grid lines.
+A grid cell is the similar term for the full grid—it is the space between two adjacent row and two adjacent column grid lines. It is the smallest unit of the grid that can be referenced when positioning grid items.
 
 **Grid Item**
 
-Grid Items are the child elements of the grid and we can position each item using the `grid-column` and `grid-row` properties.
+Grid Items are the child elements of the grid container and the contents of the grid container consists of zero or more grid items.
+
+**Grid Area**
+
+logical space used to layout one or more grid items
+
+The space used to layout one or more grid items bound by 4 grid lines.
+
+#### The Explicit Grid
+
+Defined by 3 properties 
+
+`grid-template-rows` is a space separated track list which includes line names and sizing functions of the grid rows.
+
+`grid-template-columns` specifies the column information as for rows property
+
+`grid-template-areas` specifies named areas which are not associated with any particular grid item. Also useful to visualize the grid
 
 #### using grid-template-areas
 
