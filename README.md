@@ -1,34 +1,35 @@
 # CSS Grid Layout
 
-Every single website we are doing today has grid layout, sometimes we use a ready to go CSS frameworks to handle the layout creation for us, and each framework try to create layout differently. Some times we use float, box-sizing, and clearfix, but a new, shiny, and native support comes with [CSS Grid Layout Module](https://drafts.csswg.org/css-grid-1/).
+Every single website we are building today has a grid layout, and for years we are doing layouts differently. In the old days tables were used to create the layout, then we started to use float, box-sizing, but now a new, shiny, and elegant solution for creating layouts comes with [CSS Grid Layout Module](https://drafts.csswg.org/css-grid-1/).
 
-The initial motivation behind Grid layout is to make layout creation easily, so we no longer need to implement layouts with HTML tables, floats and clearfix hacks, the Grid will be the native support for creating grids in the browser.
+The initial motivation behind Grid layout is to make layout creation easily, so we no longer need to implement layouts using HTML tables, floats and other CSS hacks like clearfix, the Grid Module will be the native support for creating grids in the browser.
 
-The core idea about the Grid Layout is to partition the web page into a defined set of rows and columns, then we have the ability to position and size those partitions based on the rows and columns we just created.
-
-In this introduction we will introduce the new *CSS Grid Layout Module*, what is the current browser support, how it works with some examples.
+In this introduction we will discover the new **CSS Grid Layout Module**, what is the current browser support, how it works with some examples.
 
 ## Browser Support
 
 Before we can div into the Grid Layout, we need to talk about the current [browser support](http://caniuse.com/#feat=css-grid) and how to enable this feature in the current browsers.
 
+![browser-support](https://cloud.githubusercontent.com/assets/626005/10709349/0b479a46-7a2a-11e5-9226-875df264375f.png)
+
 The first proposal of the Grid developed by Microsoft, so that it's implemented in IE10.
 
 ##### Google Chrome
 
-Go to `chrome://flags` URL, then scroll to `Enable experimental Web Platform features` flag and then enable it, then you will be asked to Relaunch Chrome.
-[chrome://flags/#enable-experimental-web-platform-features](chrome://flags/#enable-experimental-web-platform-features
-)
+From `chrome://flags` URL, look for `Enable experimental Web Platform features`flag, enable it, then you will be asked to Relaunch Chrome.
+
 ![chrome-config](https://cloud.githubusercontent.com/assets/626005/9566281/bcbb9d78-4eff-11e5-8784-76400fce453e.jpg)
 
 ##### Firefox
-Go to `about:config`, then search for `layout.css.grid.enabled` then double click or enter to activate it.
+From `about:config` URL, search for `layout.css.grid.enabled`, then double click, or press enter to activate it.
 
 ![firefox-config](https://cloud.githubusercontent.com/assets/626005/9566280/bcb081b8-4eff-11e5-8f78-bce7fa0a6ded.jpg)
 
 I have tried Firefox but it seems like there are some problems rendering the layout, so we can use Google Chrome.
 
 ## What is CSS Grid Layout
+
+The core idea about the Grid Layout is to partition the web page into a defined set of rows and columns, then we have the ability to position and size those partitions based on the rows and columns we just created.
 
 > This CSS module defines a two-dimensional grid-based layout system, optimized for user interface design. In the grid layout model, the children of a grid container can be positioned into arbitrary slots in a flexible or fixed predefined layout grid.
 
