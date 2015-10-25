@@ -2,7 +2,7 @@
 
 Every single website we are building today has a grid layout, and for years we are doing layouts differently. In the old days tables were used to create the layout, then we started to use float, box-sizing, but now a new, shiny, and elegant solution for creating layouts comes with [CSS Grid Layout Module](https://drafts.csswg.org/css-grid-1/).
 
-The initial motivation behind Grid layout is to make layout creation easily, so we no longer need to implement layouts using HTML tables, floats and other CSS hacks like clearfix, the Grid Module will be the native support for creating grids in the browser.
+As the initial motivation behind Grid layout is to make layout creation easily, we no longer need to implement layouts using HTML tables, floats and other CSS hacks like clearfix, the Grid Module will be the native support for creating grids in the browser.
 
 In this introduction we will discover the new **CSS Grid Layout Module**, what is the current browser support, how it works with some examples.
 
@@ -12,7 +12,7 @@ Before we can div into the Grid Layout, we need to talk about the current [brows
 
 ![browser-support](https://cloud.githubusercontent.com/assets/626005/10709349/0b479a46-7a2a-11e5-9226-875df264375f.png)
 
-The first proposal of the Grid developed by Microsoft, so that it's implemented in IE10.
+Since the first proposal of the Grid developed by Microsoft, it's implemented in IE10.
 
 ##### Google Chrome
 
@@ -25,7 +25,7 @@ From `about:config` URL, search for `layout.css.grid.enabled`, then double click
 
 ![firefox-config](https://cloud.githubusercontent.com/assets/626005/9566280/bcb081b8-4eff-11e5-8f78-bce7fa0a6ded.jpg)
 
-I have tried Firefox but it seems like there are some problems rendering the layout, so we can use Google Chrome.
+As I have tried Firefox but it seems like there are some problems rendering the layout, we can use Google Chrome.
 
 ## What is CSS Grid Layout
 
@@ -90,7 +90,7 @@ We can also achieve the above example only on small screens by wrapping the code
 }
 ```
 
-A very interesting feature of the Grid Module is the ability to rearrange the page partitions visually without editing HTML or we can call it the source order. Imagine in the preceding example for small screens we want to bring the messages section to be the first section, so we need to move it to the first column in the first row.
+A very interesting feature of the Grid Module is the ability to rearrange the page partitions visually without editing HTML, or we can call it the source order. As in the preceding example, and for small screens we want to bring the messages section to be the first section, we need to move it to the first column in the first row.
 
 ![screen shot 2015-08-29 at 12 48 29](https://cloud.githubusercontent.com/assets/626005/9561604/55085a3a-4e4c-11e5-9f86-1220f260bb16.png)
 
