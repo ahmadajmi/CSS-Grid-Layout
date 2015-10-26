@@ -1,4 +1,4 @@
-# CSS Grid Layout
+# Getting started with CSS Grid Layout Module
 
 Every single website we are building today has a grid layout, and for years we are doing layouts differently. In the old days tables were used to create the layout, then we started to use float, box-sizing, but now a new, shiny, and elegant solution for creating layouts comes with [CSS Grid Layout Module](https://drafts.csswg.org/css-grid-1/).
 
@@ -108,7 +108,7 @@ A use case for this when we need to set the position of the sidebar based on the
 
 ![screen shot 2015-09-01 at 8 46 52 am](https://cloud.githubusercontent.com/assets/626005/9597835/093d916a-5086-11e5-97f2-c8e7da9ad672.png)
 
-### Grid Layout Module Concepts
+## Grid Layout Module Concepts
 
 There are some basic concepts that we need to know for a better understanding the new Module.
 
@@ -199,7 +199,6 @@ and in small screen it will come in the first row in the second row
 .tweets { grid-area: replies; }
 ```
 
-
 ## What Is CSS Grid Layout in More Details
 
 `grid span`
@@ -210,15 +209,19 @@ How many grid tracks the grid item occupies
 
 `fr` => flex factor: rakes the remaining space
 
-
 ## Example
 
-Take a real world example
+What about using the Grid Module to implement a real example, what about creating the building blocks of the Slack layout.
 
-Try also the example of sticky footer
+[![Slack Image][slack-image]](https://brandfolder.com/slack)
+
+Since we are interested, and talking about layouts, we can abstract and simplify the Slack design to the building blocks represented in the grid, something like this:
+
+![slack layout](https://cloud.githubusercontent.com/assets/626005/10723155/9a454774-7bc0-11e5-9fef-add642356e63.png)
 
 ## Conclusion
 
+Demo: http://codepen.io/ahmadajmi/pen/Qjxvqj
 
 #### Drafts
 A very interesting feature of the Grid Module is the ability to adapt the content layout to changes in different devices and viewports without changing the semantic of the content.
@@ -228,3 +231,4 @@ A very interesting feature of the Grid Module is the ability to adapt the conten
 [CSS Grid Layout Examples]:https://igalia.github.io/css-grid-layout/index.html
 [Grid by Example]:http://gridbyexample.com/
 [Microsoft Grid Layout]:https://msdn.microsoft.com/en-gb/library/hh772052.aspx
+[slack-image]:https://cloud.githubusercontent.com/assets/626005/10714425/eb63804a-7af7-11e5-91aa-11f3a8b718ad.png
