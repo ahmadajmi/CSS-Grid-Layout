@@ -1,14 +1,18 @@
 # Getting started with CSS Grid Layout Module
 
-Every single website we are building today has a grid layout, and for years we are doing layouts differently. In the old days tables were used to create the layout, then we started to use float, box-sizing, but now a new, shiny, and elegant solution for creating layouts comes with [CSS Grid Layout Module](https://drafts.csswg.org/css-grid-1/).
+Back in the old days of creating web pages, we used HTML tables to create page layout, then we started to use floats with clearfix, and box-sizing, but a new solution for creating layouts comes with [CSS Grid Layout Module](https://drafts.csswg.org/css-grid-1/).
 
-As the initial motivation behind Grid layout is to make layout creation easily, we no longer need to implement layouts using HTML tables, floats and other CSS hacks like clearfix, the Grid Module will be the native support for creating grids in the browser.
+In this introduction we will discover the new **CSS Grid Layout Module**, what is the current status, browser support, and how it works with some practical examples.
 
-In this introduction we will discover the new **CSS Grid Layout Module**, what is the current browser support, how it works with some examples.
+## What is CSS Grid Layout
+
+The core idea about the Grid Layout is to partition the web page into a defined set of rows and columns, then we have the ability to position and size those partitions based on the rows and columns we just created.
+
+> This CSS module defines a two-dimensional grid-based layout system, optimized for user interface design. In the grid layout model, the children of a grid container can be positioned into arbitrary slots in a flexible or fixed predefined layout grid.
 
 ## Browser Support
 
-Before we can div into the Grid Layout, we need to talk about the current [browser support](http://caniuse.com/#feat=css-grid) and how to enable this feature in the current browsers.
+Before we can div into the Grid Layout, we need to talk about the current status of the module, [browser support](http://caniuse.com/#feat=css-grid), and how to enable it in the current browsers.
 
 ![browser-support](https://cloud.githubusercontent.com/assets/626005/10709349/0b479a46-7a2a-11e5-9226-875df264375f.png)
 
@@ -18,24 +22,18 @@ Since the first proposal of the Grid developed by Microsoft, it's implemented in
 
 From `chrome://flags` URL, look for `Enable experimental Web Platform features`flag, enable it, then you will be asked to Relaunch Chrome.
 
-![chrome-config](https://cloud.githubusercontent.com/assets/626005/9566281/bcbb9d78-4eff-11e5-8784-76400fce453e.jpg)
+![support-chrome](https://cloud.githubusercontent.com/assets/626005/10864161/93b1a55c-7fed-11e5-806c-dbaac9e66a73.jpg)
 
 ##### Firefox
-From `about:config` URL, search for `layout.css.grid.enabled`, then double click, or press enter to activate it.
+From `about:config` URL, search for `layout.css.grid.enabled`, then double click, or press enter and toggle it to true for activation.
 
-![firefox-config](https://cloud.githubusercontent.com/assets/626005/9566280/bcb081b8-4eff-11e5-8f78-bce7fa0a6ded.jpg)
+![support-firefox](https://cloud.githubusercontent.com/assets/626005/10864162/93bb055c-7fed-11e5-9777-d69d22c319c5.jpg)
 
 As I have tried Firefox but it seems like there are some problems rendering the layout, we can use Google Chrome.
 
-## What is CSS Grid Layout
-
-The core idea about the Grid Layout is to partition the web page into a defined set of rows and columns, then we have the ability to position and size those partitions based on the rows and columns we just created.
-
-> This CSS module defines a two-dimensional grid-based layout system, optimized for user interface design. In the grid layout model, the children of a grid container can be positioned into arbitrary slots in a flexible or fixed predefined layout grid.
-
 ## Grid Layout Example
 
-Let's start with an example to see the power of the Grid Module, imagine we need to create a page with one row and full height 4 columns.
+Let's start with an example to see the power of the Grid Module, imagine we want to create a page with one row, and 4 columns (full height).
 
 ![vertical-grid](https://cloud.githubusercontent.com/assets/626005/9573251/59eb41ce-4fba-11e5-92d8-d16ee6bdfc6b.jpg)
 
