@@ -36,6 +36,11 @@ components of the page, and finally block/inline/table layout at the
 
 [Flexbox and Grid Layout by: Rachel Andrew](http://www.slideshare.net/rachelandrew/flexbox-and-grid-layout/89)
 
+`grid span`
+
+How many grid tracks the grid item occupies
+
+`fr` => flex factor: takes the remaining space
 
 ## Good Resources
 [Flexbox and Grid Layout by: Rachel Andrew](http://www.slideshare.net/rachelandrew/flexbox-and-grid-layout/89)

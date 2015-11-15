@@ -45,11 +45,11 @@ Let's start with an example to see the power of the Grid Module. Imagine we want
 ![vertical-grid](https://cloud.githubusercontent.com/assets/626005/9573251/59eb41ce-4fba-11e5-92d8-d16ee6bdfc6b.jpg)
 
 ``` html
-<div class="grid-layout">
-  <div class="tweets">Tweets</div>
-  <div class="replies">Replies</div>
-  <div class="search">Search</div>
-  <div class="messages">Messages</div>
+<div class='grid-layout'>
+  <div class='tweets'>Tweets</div>
+  <div class='replies'>Replies</div>
+  <div class='search'>Search</div>
+  <div class='messages'>Messages</div>
 </div>
 ```
 
@@ -165,7 +165,7 @@ Defined by 3 properties
 
 `grid-template-areas` specifies named areas which are not associated with any particular grid item. Also useful to visualize the grid
 
-#### using grid-template-areas
+## Using grid-template-areas
 
 Another option is to sue the `grid-template-areas` to divide the page sections into areas, each area with a specific name.
 
@@ -207,17 +207,7 @@ and in small screen it will come in the first row in the second row
 .tweets { grid-area: replies; }
 ```
 
-## What Is CSS Grid Layout in More Details
-
-`grid span`
-
-How many grid tracks the grid item occupies
-
-#### Grid Container
-
-`fr` => flex factor: rakes the remaining space
-
-## Example
+## Slack Example
 
 What about using the Grid Module to implement a real example, what about creating the building blocks of the Slack layout.
 
@@ -281,12 +271,48 @@ Since we are interested, and talking about layouts, we can abstract and simplify
 
 ```
 
-## Conclusion
-
 Demo: http://codepen.io/ahmadajmi/pen/Qjxvqj
 
-#### Drafts
-A very interesting feature of the Grid Module is the ability to adapt the content layout to changes in different devices and viewports without changing the semantic of the content.
+## Grid Layout Module vs Flexbox
+
+> Flexbox is for one-dimensional layouts - anything that needs to be
+laid out in a straight line (or in a broken line, which would be a
+single straight line if they were joined back together).
+
+> Grid is for two-dimensional layouts.  It can be used as a low-powered
+flexbox substitute (we're trying to make sure that a single-column/row
+grid acts very similar to a flexbox), but that's not using its full
+power.
+
+> Flexbox is appropriate for many layouts, and a lot of "page component"
+elements, as most of them are fundamentally linear.  Grid is
+appropriate for overall page layout, and for complicated page
+components which aren't linear in their design.
+
+> The two can be composed arbitrarily, so once they're both widely
+supported, I believe most pages will be composed of an outer grid for
+the overall layout, a mix of nested flexboxes and grid for the
+components of the page, and finally block/inline/table layout at the
+"leaves" of the page, where the text and content live.
+
+[Grid Layout vs Flexbox by: Tab Atkins](https://lists.w3.org/Archives/Public/www-style/2013May/0114.html)
+
+> Grid Layout for the main page structure of rows and columns.
+
+> Flexbox for navigation, UI elements, anything you could linearize.
+
+[Flexbox and Grid Layout by: Rachel Andrew](http://www.slideshare.net/rachelandrew/flexbox-and-grid-layout/89)
+
+## Resources
+
+[W3C CSS Grid Layout Module](https://drafts.csswg.org/css-grid-1/)
+
+[Flexbox and Grid Layout by: Rachel Andrew](http://www.slideshare.net/rachelandrew/flexbox-and-grid-layout/89)
+
+[The future of layout with css grid layouts](https://hacks.mozilla.org/2015/09/the-future-of-layout-with-css-grid-layouts/)
+
+## Conclusion
+
 
 [caniuse suppport]:http://caniuse.com/#feat=css-grid
 [CSS Grid Layout Module Level 1]:https://drafts.csswg.org/css-grid/
@@ -294,3 +320,4 @@ A very interesting feature of the Grid Module is the ability to adapt the conten
 [Grid by Example]:http://gridbyexample.com/
 [Microsoft Grid Layout]:https://msdn.microsoft.com/en-gb/library/hh772052.aspx
 [slack-image]:https://cloud.githubusercontent.com/assets/626005/10714425/eb63804a-7af7-11e5-91aa-11f3a8b718ad.png
+[css-grid-polyfill]:https://github.com/FremyCompany/css-grid-polyfill
