@@ -1,14 +1,16 @@
 # Introduction to CSS Grid Layout Module
 
-Back to the old days of creating web pages, we used HTML tables to create page layout, then we started to use floats with clearfix, and box-sizing, but a new solution for creating layouts comes with [CSS Grid Layout Module](https://drafts.csswg.org/css-grid-1/).
+Back to the old days of creating web pages, we used HTML tables to create page layout, and then we started to use some CSS properties like floats combined with clearfix and box-sizing. Another option is to use a CSS framework to help us create the complex layouts we need. 
+
+As web applications becomes more and more complex in different domains including layouts and responsive design, we need as web developers a more natural and native way to do complex layouts easily without any hacks and workarounds. Fortunately a new solution for creating layouts comes with [CSS Grid Layout Module](https://drafts.csswg.org/css-grid-1/).
 
 In this introduction we will discover the new **CSS Grid Layout Module**, the current browser support, and how it works with some practical examples.
 
 ## What is CSS Grid Layout?
 
-The core idea behind the Grid Layout is to partition the web page into a defined set of rows and columns, and then we have the ability to position and size those partitions based on the rows and columns we created.
+The core idea behind the Grid Layout is to divide a web page into columns and rows, and then we have the ability to position and size the building block elements based on the rows and columns we created.
 
-> This CSS module defines a two-dimensional grid-based layout system, optimized for user interface design. In the grid layout model, the children of a grid container can be positioned into arbitrary slots in a flexible or fixed predefined layout grid.
+The Grid also gives us a flexible way to change layouts elements position with CSS at different breakpoints using media queries without any change to HTML structure.
 
 ## Browser Support
 
@@ -34,7 +36,7 @@ From `about:config` URL, search for `layout.css.grid.enabled` flag, then double 
 
 ##### Polyfill
 
-As I have tried Firefox but it seems like there are some problems rendering the layout, we can use Google Chrome.
+A [Polyfill] is currently available.
 
 ## Grid Layout Example
 
@@ -67,7 +69,7 @@ Here is the explanation of what we've done in the previous CSS code snippet:
 * Divide the grid container into 4 columns, and each one is `25%`.
 * Create one row, and set the height be `100vh`.
 
-The `grid` responsibility is to set the `grid-layout` container to `gird`, and this is a required property.
+The `grid` responsibility is to set the `grid-layout` element to a grid container, and this is a required property, and will create a new [Block Formatting Context].
 
 The `grid-template-columns` responsibility is to divide the `grid-layout` container into columns, and in our case we did a 4 columns each one with `25%` of the page width.
 
@@ -91,9 +93,9 @@ We can also achieve the above example only on small screens by wrapping the code
 ``` css
 @media screen and (max-width: 1024px) {
   .grid-layout {
-  	display: grid;
-  	grid-template-columns: 50% 50%;
-  	grid-template-rows: 50vh 50vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50vh 50vh;
   }
 }
 ```
@@ -125,11 +127,13 @@ This is the basic building block.
 
 **Grid Lines**
 
-horizontal and vertical dividing lines
-
-The horizontal and vertical dividing lines of the grid, lines exists on either side of a column or a row. We can refer to a grid line by a numerical index or by a specific name.
-
 ![grid-lines](https://cloud.githubusercontent.com/assets/626005/9755781/266a84f0-56d5-11e5-92f4-cc40fb3154d8.png)
+
+We have 3 vertical lines, and 4 horizontal lines.
+
+The horizontal and vertical dividing lines of the grid, a line exists on either side of a column or a row. We can refer to a grid line by a numerical index, or by an author-specified name.
+
+When we are placing an element inside the container we can reference theses lines, if we want to place the header, we will put it between the first and the third vertical lines.
 
 **Grid Track**
 
@@ -139,19 +143,15 @@ A generic term of for a grid column or grid row, or it's the space between to ad
 
 **Grid Cell**
 
-Smallest area bounded by grid lines
-
-Is the smallest unit of the grid and it is the space between two adjacent row and two adjacent column grid lines.
-
-A grid cell is the similar term for the full grid—it is the space between two adjacent row and two adjacent column grid lines. It is the smallest unit of the grid that can be referenced when positioning grid items.
+The smallest unit of the grid that can be referenced when positioning grid lines. It is the space between two adjacent row and two adjacent column grid lines.
 
 **Grid Item**
 
-Grid Items are the child elements of the grid container and the contents of the grid container consists of zero or more grid items.
+Grid items are the child elements of the grid container and the contents of the grid container consists of zero or more grid items.
 
 **Grid Area**
 
-logical space used to layout one or more grid items
+Logical space used to layout one or more grid items
 
 The space used to layout one or more grid items bound by 4 grid lines.
 
@@ -275,14 +275,9 @@ Demo: http://codepen.io/ahmadajmi/pen/Qjxvqj
 
 ## Grid Layout Module vs Flexbox
 
-> Flexbox is for one-dimensional layouts - anything that needs to be
-laid out in a straight line (or in a broken line, which would be a
-single straight line if they were joined back together).
+Since many of us have used flexbox before, one question would come to mind to say: When can I user flexbox and when can I use the Grid Module?
 
-> Grid is for two-dimensional layouts.  It can be used as a low-powered
-flexbox substitute (we're trying to make sure that a single-column/row
-grid acts very similar to a flexbox), but that's not using its full
-power.
+There are a pretty good answers I read about the difference, one from [Tab Atkins], and the other one from [Rachel Andrew], which I find pretty useful.
 
 > Flexbox is appropriate for many layouts, and a lot of "page component"
 elements, as most of them are fundamentally linear.  Grid is
@@ -303,21 +298,16 @@ components of the page, and finally block/inline/table layout at the
 
 [Flexbox and Grid Layout by: Rachel Andrew](http://www.slideshare.net/rachelandrew/flexbox-and-grid-layout/89)
 
-## Resources
-
-[W3C CSS Grid Layout Module](https://drafts.csswg.org/css-grid-1/)
-
-[Flexbox and Grid Layout by: Rachel Andrew](http://www.slideshare.net/rachelandrew/flexbox-and-grid-layout/89)
-
-[The future of layout with css grid layouts](https://hacks.mozilla.org/2015/09/the-future-of-layout-with-css-grid-layouts/)
-
 ## Conclusion
-
 
 [caniuse suppport]:http://caniuse.com/#feat=css-grid
 [CSS Grid Layout Module Level 1]:https://drafts.csswg.org/css-grid/
 [CSS Grid Layout Examples]:https://igalia.github.io/css-grid-layout/index.html
 [Grid by Example]:http://gridbyexample.com/
 [Microsoft Grid Layout]:https://msdn.microsoft.com/en-gb/library/hh772052.aspx
+[Block Formatting Context]:http://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 [slack-image]:https://cloud.githubusercontent.com/assets/626005/10714425/eb63804a-7af7-11e5-91aa-11f3a8b718ad.png
-[css-grid-polyfill]:https://github.com/FremyCompany/css-grid-polyfill
+[Polyfill]:https://github.com/FremyCompany/css-grid-polyfill
+
+[Tab Atkins]:http://www.xanthir.com/blog/
+[Rachel Andrew]:https://www.rachelandrew.co.uk/
