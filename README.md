@@ -20,7 +20,7 @@ Before we can div more into the Grid Layout, we need to talk about the current [
 
 ##### Internet Explorer
 
-Since the first proposal of the Grid developed by Microsoft, it is first implemented in IE10 version.
+Since the first proposal of the Grid developed by Microsoft, it is implemented in IE10.
 
 ##### Google Chrome
 
@@ -65,15 +65,17 @@ Let's start with an example to see the power of the Grid Module. Imagine we want
 
 Here is the explanation of what we've done in the previous CSS code snippet:
 
-* Set the display property to `grid`.
-* Divide the grid container into 4 columns, and each one is `25%`.
-* Create one row, and set the height be `100vh`.
+* Set the display property value to `grid`.
+* Divide the grid container into 4 columns, and each one is `25%` of that container.
+* Create one row, and set the height to be `100vh`.
 
-The `grid` responsibility is to set the `grid-layout` element to a grid container, and this is a required property, and will create a new [Block Formatting Context].
+The Grid added a new value to the `display` property which is `grid`, responsible for setting the `grid-layout` element to a grid container, and this is a required property to start using the Grid.
 
-The `grid-template-columns` responsibility is to divide the `grid-layout` container into columns, and in our case we did a 4 columns each one with `25%` of the page width.
+The `grid-template-columns` responsibility is to divide the `grid-layout` container into columns, and in our case we did a 4 columns each one is `25%` of container width.
 
-The `grid-template-rows` use case is to create the layout rows, and in our example we only created one row. If we set the columns to be just 2 we may need to create two rows each is `50vh` height as the following example.
+The `grid-template-rows` is used the layout rows, and in our example we only created one row.
+
+If wee need to create a layout with two columns and two rows, we can do:
 
 ``` css
 .grid-layout {
@@ -83,12 +85,13 @@ The `grid-template-rows` use case is to create the layout rows, and in our examp
 }
 ```
 
-So this will give us a 4 boxes layout like
+So this will give us a 4 boxes layout like:
 
 ![screen shot 2015-08-29 at 12 34 18](https://cloud.githubusercontent.com/assets/626005/9561557/899242fe-4e4a-11e5-8f35-630fce7b84e6.png)
 
-We can also achieve the above example only on small screens by wrapping the code inside Media Queries. This opens a great opportunity for us to customize the layout differently in different viewports. For example, we can achive the pevious 4 boxes layout only on screens less than `1024px` as:
+## Working with Responsive Design
 
+We can also achieve the above example only on small screens by wrapping the code inside Media Queries. This opens a great opportunity for us to customize the layout differently in different viewports. For example, we can achieve the previous 4 boxes layout only on screens less than `1024px` as:
 
 ``` css
 @media screen and (max-width: 1024px) {
@@ -123,6 +126,7 @@ A use case for this when we need to set the position of the sidebar based on the
 There are some new concepts that we need to know for a better understanding the new Module.
 
 **Grid Element**
+
 This is the basic building block.
 
 **Grid Lines**
@@ -143,15 +147,13 @@ A generic term of for a grid column or grid row, or it's the space between to ad
 
 **Grid Cell**
 
-The smallest unit of the grid that can be referenced when positioning grid lines. It is the space between two adjacent row and two adjacent column grid lines.
+The smallest unit of the grid that can be referenced when positioning grid lines. It is the space between two adjacent row and two adjacent column grid lines, or the space between 4 grid lines.
 
 **Grid Item**
 
-Grid items are the child elements of the grid container and the contents of the grid container consists of zero or more grid items.
+Grid items are the child elements of the grid container, and the contents of the grid container consists of zero or more grid items.
 
 **Grid Area**
-
-Logical space used to layout one or more grid items
 
 The space used to layout one or more grid items bound by 4 grid lines.
 

@@ -15,3 +15,6 @@ In addition, the absence of content structure in grid layout helps to manage cha
 By combining media queries with the CSS properties that control layout of the grid container and its children, authors can adapt their layout to changes in device form factors, orientation, and available space, without needing to alter the semantic nature of their content.
 
 A very interesting feature of the Grid Module is the ability to adapt the content layout to changes in different devices and viewports without changing the semantic of the content.
+
+## Grid Layout Example
+and will create a new **grid formatting context** for it's contents. The grid formatting context is the same as the [Block Formatting Context], except that the grid layout is used instead of the block layout.
