@@ -1,20 +1,20 @@
 # Introduction to CSS Grid Layout Module
 
-Back to the old days of creating web pages, we used HTML tables to create page layout, and then we started to use some CSS properties like floats combined with clearfix and box-sizing. Another option is to use a CSS framework to help us create the complex layouts we need. 
+Back to the old days of creating web pages, we used HTML tables to create page layout, and then we started to use some CSS properties like floats combined with clearfix, and box-sizing. Another option is to use a CSS framework to help us create the complex layouts we need.
 
-As web applications becomes more and more complex in different domains including layouts and responsive design, we need as web developers a more natural and native way to do complex layouts easily without any hacks and workarounds. Fortunately a new solution for creating layouts comes with [CSS Grid Layout Module](https://drafts.csswg.org/css-grid-1/).
+As web applications becomes more and more complex in different domains including layouts and responsive design, we need as web developers a more natural and native way to do complex layouts easily without any hacks and workarounds. Fortunately a new solution for creating layouts comes with [CSS Grid Layout Module](http://www.w3.org/TR/css-grid-1/).
 
 In this introduction we will discover the new **CSS Grid Layout Module**, the current browser support, and how it works with some practical examples.
 
 ## What is CSS Grid Layout?
 
-The core idea behind the Grid Layout is to divide a web page into columns and rows, and then we have the ability to position and size the building block elements based on the rows and columns we created.
+The core idea behind the Grid Layout is to divide the web page into columns and rows, and then we have the ability to position and size the building block elements based on the rows and columns we have created.
 
-The Grid also gives us a flexible way to change layouts elements position with CSS at different breakpoints using media queries without any change to HTML structure.
+The Grid also gives us a flexible way to change layout elements position with CSS at different breakpoints using media queries without any change to HTML structure.
 
 ## Browser Support
 
-Before we can div more into the Grid Layout, we need to talk about the current [browser support](http://caniuse.com/#feat=css-grid), and how we can enable it in the current browsers.
+Before we can div more into the Grid, we need to talk about the current [browser support](http://caniuse.com/#feat=css-grid), and how we can enable it in the current browsers.
 
 ![browser-support](https://cloud.githubusercontent.com/assets/626005/11093188/5eeace82-8891-11e5-83ad-59ace53d8164.jpg)
 
@@ -24,13 +24,13 @@ Since the first proposal of the Grid developed by Microsoft, it is implemented i
 
 ##### Google Chrome
 
-From `chrome://flags` URL, look for `Enable experimental Web Platform features` flag, enable it, and then you will be asked to Relaunch Chrome.
+Navigate to `chrome://flags` URL, look for `Enable experimental Web Platform features` flag, enable it, and then you will be asked to Relaunch Chrome.
 
 ![support-chrome](https://cloud.githubusercontent.com/assets/626005/10864161/93b1a55c-7fed-11e5-806c-dbaac9e66a73.jpg)
 
 ##### Firefox
 
-From `about:config` URL, search for `layout.css.grid.enabled` flag, then double click or press enter to toggle it to true for activation.
+Navigate to `about:config` URL, search for `layout.css.grid.enabled` flag, then double click or press enter to toggle it to true for activation.
 
 ![support-firefox](https://cloud.githubusercontent.com/assets/626005/10864162/93bb055c-7fed-11e5-9777-d69d22c319c5.jpg)
 
@@ -40,9 +40,9 @@ A [Polyfill] is currently available.
 
 ## Grid Layout Example
 
-Let's start with an example to see the power of the Grid Module, then we can explain some concepts in more details. Imagine we want to create a page layout with one row, and 4 columns (full height).
+Let's start with an example to see the power of the Grid Module, and then we will explain some concepts in more details.
 
-Let's start with an example to see the power of the Grid Module. Imagine we want to create a page layout with one row, and 4 full height columns.
+Imagine we want to create a page layout with four full height columns.
 
 ![vertical-grid](https://cloud.githubusercontent.com/assets/626005/9573251/59eb41ce-4fba-11e5-92d8-d16ee6bdfc6b.jpg)
 
@@ -55,17 +55,17 @@ Let's start with an example to see the power of the Grid Module. Imagine we want
 </div>
 ```
 
-``` css
+``` scss
 .grid-layout {
-  display: grid; /* 1 */
-  grid-template-columns: 25% 25% 25% 25%; /* 2 */
-  grid-template-rows: 100vh; /* 3 */
+  display: grid; // 1
+  grid-template-columns: 25% 25% 25% 25%; // 2
+  grid-template-rows: 100vh; // 3
 }
 ```
 
 Here is the explanation of what we've done in the previous CSS code snippet:
 
-* Set the display property value to `grid`.
+1. Set the display property value to `grid`.
 * Divide the grid container into 4 columns, and each one is `25%` of that container.
 * Create one row, and set the height to be `100vh`.
 
@@ -85,13 +85,13 @@ If wee need to create a layout with two columns and two rows, we can do:
 }
 ```
 
-So this will give us a 4 boxes layout like:
+So this will give us a four boxes layout like:
 
 ![screen shot 2015-08-29 at 12 34 18](https://cloud.githubusercontent.com/assets/626005/9561557/899242fe-4e4a-11e5-8f35-630fce7b84e6.png)
 
 ## Working with Responsive Design
 
-We can also achieve the above example only on small screens by wrapping the code inside Media Queries. This opens a great opportunity for us to customize the layout differently in different viewports. For example, we can achieve the previous 4 boxes layout only on screens less than `1024px` as:
+We can also achieve the above example only on small screens by wrapping the code inside Media Queries. This opens a great opportunity for us to customize the layout differently in different viewports. For example, we can create the previous layout only on screens less than `1024px` as:
 
 ``` css
 @media screen and (max-width: 1024px) {
@@ -103,16 +103,20 @@ We can also achieve the above example only on small screens by wrapping the code
 }
 ```
 
-A very interesting feature of the Grid Module is the ability to rearrange the page partitions visually without editing HTML, or the source order. As in the preceding example, and for small screens we want to bring the messages section to be the first one, in another way we need to move it to the first column in the first row.
+## Source-Order Independence
+
+We can rearrange the layout of elements independent of their source order, so we can achive the desired layout in different screen size, orientation. This is very useful becuse we will separete the markup from CSS and change everything from CSS without editing HTML markup anymore.
+
+In the preceding example, and for small screens we want to bring the messages section to be the first one, in another way we need to move it to the first column in the first row.
 
 ![screen shot 2015-08-29 at 12 48 29](https://cloud.githubusercontent.com/assets/626005/9561604/55085a3a-4e4c-11e5-9f86-1220f260bb16.png)
 
-``` css
+``` scss
 @media screen and (max-width: 1024px) {
   
-  /* ....  */
+  // ...
 
-  /* Set the message position in the column 1 and row 1 */
+  // Set the message position in the column 1 and row 1
   .messages { grid-column: 1; grid-row: 1; }
 }
 ```
@@ -121,9 +125,11 @@ A use case for this when we need to set the position of the sidebar based on the
 
 ![screen shot 2015-09-01 at 8 46 52 am](https://cloud.githubusercontent.com/assets/626005/9597835/093d916a-5086-11e5-97f2-c8e7da9ad672.png)
 
+As you can see, we only do changes in CSS, and we didn't touch HTML code.
+
 ## Grid Layout Module Concepts
 
-There are some new concepts that we need to know for a better understanding the new Module.
+After we have seen some practical examples, there are some new concepts that we need to know for a better understanding the new Module.
 
 **Grid Element**
 
@@ -136,6 +142,8 @@ This is the basic building block.
 We have 3 vertical lines, and 4 horizontal lines.
 
 The horizontal and vertical dividing lines of the grid, a line exists on either side of a column or a row. We can refer to a grid line by a numerical index, or by an author-specified name.
+
+There are two sets of grid lines: one set defining columns (vertical axis), and another set defining rows (horizontal axis).
 
 When we are placing an element inside the container we can reference theses lines, if we want to place the header, we will put it between the first and the third vertical lines.
 
@@ -212,8 +220,6 @@ and in small screen it will come in the first row in the second row
 ## Slack Example
 
 What about using the Grid Module to implement a real example, what about creating the building blocks of the Slack layout.
-
-[![Slack Image][slack-image]](https://brandfolder.com/slack)
 
 Since we are interested, and talking about layouts, we can abstract and simplify the Slack design to the building blocks represented in the grid, something like this:
 
