@@ -20,7 +20,7 @@ Before we can div more into the Grid, we need to talk about the current [browser
 
 ##### Internet Explorer
 
-Since the first proposal of the Grid developed by Microsoft, it is implemented in IE10.
+Since the first proposal of the Grid developed by Microsoft, Internet Explorer 10 shipped with a ```-ms``` prefixed implementation. If we take a look at the image above, or at the [Can I Use](http://caniuse.com/#feat=css-grid) report, we can see that Internet Explorer 11, and the Edge browsers are also supported. In other browsers the Grid Layout is not supported by default, but can be enabled.
 
 ##### Google Chrome
 
@@ -113,7 +113,7 @@ In the preceding example, and for small screens we want to bring the messages se
 
 ``` scss
 @media screen and (max-width: 1024px) {
-  
+
   // ...
 
   // Set the message position in the column 1 and row 1
@@ -167,7 +167,7 @@ The space used to layout one or more grid items bound by 4 grid lines.
 
 #### The Explicit Grid
 
-Defined by 3 properties 
+Defined by 3 properties
 
 `grid-template-rows` is a space separated track list which includes line names and sizing functions of the grid rows.
 
@@ -209,7 +209,7 @@ Another option is to sue the `grid-template-areas` to divide the page sections i
 /* Instead of doing this */
 .tweets { grid-column: 2; grid-row: 1; }
 
-/* we can do this instead and give it the name of the area in which we want to place in and in this case the replied area 
+/* we can do this instead and give it the name of the area in which we want to place in and in this case the replied area
 So the tweets section will come in the second column in the first row
 and in small screen it will come in the first row in the second row
 */

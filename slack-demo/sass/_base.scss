@@ -1,0 +1,36 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  background-color: #f2f2f2;
+}
+
+.box {
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  padding: 1em;
+  outline: none;
+  border: 1px solid #f2f2f2;
+}
+
+.message-list {
+  margin: 0;
+  padding: 0;
+}
+
+.message-list li {
+  padding: .2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: #f2f2f2;
+}

@@ -1,0 +1,15 @@
+{
+  "name": "grid_layout_slack_demo",
+  "version": "1.0.0",
+  "description": "Grid Layout Slack Demo",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-sass": "^2.0.4",
+    "gulp-watch": "^4.3.5",
+    "run-sequence": "^1.1.2",
+    "browser-sync": "^2.0.0-rc3"
+  },
+  "author": "Ahmad Ajmi"
+}
