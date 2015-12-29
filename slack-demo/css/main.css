@@ -36,7 +36,7 @@ input {
   grid-template-rows: auto 1fr auto; }
 
 .header {
-  background-color: #fff; }
+  background-color: #ffffff; }
 
 .teams {
   background-color: #362233; }
@@ -45,7 +45,7 @@ input {
   background-color: #52364E; }
 
 .messages {
-  background-color: #fff; }
+  background-color: #ffffff; }
 
 .write {
   background-color: #f2f2f2; }

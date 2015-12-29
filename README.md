@@ -2,7 +2,7 @@
 
 Back to the old days of creating web pages, we used HTML tables to create page layout, and then we started to use some CSS properties like floats combined with clearfix, and box-sizing. Another option is to use a CSS framework to help us create the complex layouts we need.
 
-As web applications becomes more and more complex in different domains including layouts and responsive design, we need as web developers a more natural and native way to do complex layouts easily without any hacks and workarounds. Fortunately a new solution for creating layouts comes with [CSS Grid Layout Module](http://www.w3.org/TR/css-grid-1/).
+As web applications becomes more and more complex in different domains including layouts and responsive design, we need as web developers a more natural, and native way to do complex layouts easily without any hacks and workarounds. Fortunately a new solution for creating layouts comes with [CSS Grid Layout Module](http://www.w3.org/TR/css-grid-1/).
 
 In this introduction we will discover the new **CSS Grid Layout Module**, the current browser support, and how it works with some practical examples.
 
@@ -24,7 +24,7 @@ Since the first proposal of the Grid developed by Microsoft, Internet Explorer 1
 
 ##### Google Chrome
 
-Navigate to `chrome://flags` URL, look for `Enable experimental Web Platform features` flag, enable it, and then you will be asked to Relaunch Chrome.
+Navigate to `chrome://flags` URL, look for `Enable experimental Web Platform features` flag, enable it, and then you will be asked to relaunch Chrome.
 
 ![support-chrome](https://cloud.githubusercontent.com/assets/626005/10864161/93b1a55c-7fed-11e5-806c-dbaac9e66a73.jpg)
 
@@ -69,9 +69,9 @@ Here is the explanation of what we've done in the previous CSS code snippet:
 * Divide the grid container into 4 columns, and each one is `25%` of that container.
 * Create one row, and set the height to be `100vh`.
 
-The Grid added a new value to the `display` property which is `grid`, responsible for setting the `grid-layout` element to a grid container, and this is a required property to start using the Grid.
+The Grid Layout added a new value to the `display` property which is `grid`, responsible for setting the `grid-layout` element to a grid container, and this is the foundation property, and required to start using the Grid Module.
 
-The `grid-template-columns` responsibility is to divide the `grid-layout` container into columns, and in our case we did a 4 columns each one is `25%` of container width.
+The `grid-template-columns` responsibility is to divide the `.grid-layout` container into columns, and in our case we did 4 columns each one is `25%` of the parent(container) width.
 
 The `grid-template-rows` is used the layout rows, and in our example we only created one row.
 
@@ -88,44 +88,6 @@ If wee need to create a layout with two columns and two rows, we can do:
 So this will give us a four boxes layout like:
 
 ![screen shot 2015-08-29 at 12 34 18](https://cloud.githubusercontent.com/assets/626005/9561557/899242fe-4e4a-11e5-8f35-630fce7b84e6.png)
-
-## Working with Responsive Design
-
-We can also achieve the above example only on small screens by wrapping the code inside Media Queries. This opens a great opportunity for us to customize the layout differently in different viewports. For example, we can create the previous layout only on screens less than `1024px` as:
-
-``` css
-@media screen and (max-width: 1024px) {
-  .grid-layout {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50vh 50vh;
-  }
-}
-```
-
-## Source-Order Independence
-
-We can rearrange the layout of elements independent of their source order, so we can achive the desired layout in different screen size, orientation. This is very useful becuse we will separete the markup from CSS and change everything from CSS without editing HTML markup anymore.
-
-In the preceding example, and for small screens we want to bring the messages section to be the first one, in another way we need to move it to the first column in the first row.
-
-![screen shot 2015-08-29 at 12 48 29](https://cloud.githubusercontent.com/assets/626005/9561604/55085a3a-4e4c-11e5-9f86-1220f260bb16.png)
-
-``` scss
-@media screen and (max-width: 1024px) {
-
-  // ...
-
-  // Set the message position in the column 1 and row 1
-  .messages { grid-column: 1; grid-row: 1; }
-}
-```
-
-A use case for this when we need to set the position of the sidebar based on the screen size, so for large screen it will be on the left side, but in small screens we can position it to the bottom of the main content.
-
-![screen shot 2015-09-01 at 8 46 52 am](https://cloud.githubusercontent.com/assets/626005/9597835/093d916a-5086-11e5-97f2-c8e7da9ad672.png)
-
-As you can see, we only do changes in CSS, and we didn't touch HTML code.
 
 ## Grid Layout Module Concepts
 
@@ -217,6 +179,44 @@ and in small screen it will come in the first row in the second row
 .tweets { grid-area: replies; }
 ```
 
+## Source-Order Independence
+
+We can rearrange the layout of elements independent of their source order, so we can achive the desired layout in different screen size, orientation. This is very useful becuse we will separete the markup from CSS and change everything from CSS without editing HTML markup anymore.
+
+In the preceding example, and for small screens we want to bring the messages section to be the first one, in another way we need to move it to the first column in the first row.
+
+![screen shot 2015-08-29 at 12 48 29](https://cloud.githubusercontent.com/assets/626005/9561604/55085a3a-4e4c-11e5-9f86-1220f260bb16.png)
+
+``` scss
+@media screen and (max-width: 1024px) {
+
+  // ...
+
+  // Set the message position in the column 1 and row 1
+  .messages { grid-column: 1; grid-row: 1; }
+}
+```
+
+A use case for this when we need to set the position of the sidebar based on the screen size, so for large screen it will be on the left side, but in small screens we can position it to the bottom of the main content.
+
+![screen shot 2015-09-01 at 8 46 52 am](https://cloud.githubusercontent.com/assets/626005/9597835/093d916a-5086-11e5-97f2-c8e7da9ad672.png)
+
+As you can see, we only do changes in CSS, and we didn't touch HTML code.
+
+## Responsive Design
+
+We can also achieve the above example only on small screens by wrapping the code inside Media Queries. This opens a great opportunity for us to customize the layout differently in different viewports. For example, we can create the previous layout only on screens less than `1024px` as:
+
+``` css
+@media screen and (max-width: 1024px) {
+  .grid-layout {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50vh 50vh;
+  }
+}
+```
+
 ## Slack Example
 
 What about using the Grid Module to implement a real example, what about creating the building blocks of the Slack layout.
@@ -306,7 +306,13 @@ components of the page, and finally block/inline/table layout at the
 
 [Flexbox and Grid Layout by: Rachel Andrew](http://www.slideshare.net/rachelandrew/flexbox-and-grid-layout/89)
 
+## Resources
+
+List some useful resources.
+
 ## Conclusion
+
+This is the conclusion
 
 [caniuse suppport]:http://caniuse.com/#feat=css-grid
 [CSS Grid Layout Module Level 1]:https://drafts.csswg.org/css-grid/
