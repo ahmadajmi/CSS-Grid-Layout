@@ -2,13 +2,13 @@
 
 Back to the old days of creating web pages, we used HTML tables to create page layout, and then we started to use some CSS properties like floats combined with clearfix, and box-sizing. Another option is to use a CSS framework to help us create the complex layouts we need.
 
-As web applications becomes more and more complex in different domains including layouts and responsive design, we need as web developers a more natural, and native way to do complex layouts easily without any hacks and workarounds. Fortunately a new solution for creating layouts comes with [CSS Grid Layout Module](http://www.w3.org/TR/css-grid-1/).
+As web applications becomes more and more complex in different domains including layouts and responsive design, we need as web developers a more natural, and native way to do complex layouts easily without any hacks and workarounds. Fortunately a new and exciting solution for creating layouts comes with [CSS Grid Layout Module](http://www.w3.org/TR/css-grid-1/).
 
 In this introduction we will discover the new **CSS Grid Layout Module**, the current browser support, and how it works with some practical examples.
 
-## What is CSS Grid Layout?
+## What is CSS Grid Layout Module?
 
-The core idea behind the Grid Layout is to divide the web page into columns and rows, and then we have the ability to position and size the building block elements based on the rows and columns we have created.
+The core idea behind the Grid Layout is to divide the web page into columns and rows, and then we have the ability to position and size the building block elements based on the rows and columns we have created in terms of size, position and layer.
 
 The Grid also gives us a flexible way to change layout elements position with CSS at different breakpoints using media queries without any change to HTML structure.
 
@@ -42,12 +42,14 @@ A [Polyfill] is currently available.
 
 Let's start with an example to see the power of the Grid Module, and then we will explain some concepts in more details.
 
-Imagine we want to create a page layout with four full height columns.
+Imagine we want to create a Twitter application with four full height columns layout (Tweets, Replies, Search, and Messages), something abstracted and  similar to the screenshot below.
 
-![vertical-grid](https://cloud.githubusercontent.com/assets/626005/9573251/59eb41ce-4fba-11e5-92d8-d16ee6bdfc6b.jpg)
+![basic-4-column-layout](https://cloud.githubusercontent.com/assets/626005/12036357/f7d0aeaa-ae4d-11e5-87d9-b61af7df781d.jpg)
+
+We start with the HTMl code:
 
 ``` html
-<div class='grid-layout'>
+<div class='app-layout'>
   <div class='tweets'>Tweets</div>
   <div class='replies'>Replies</div>
   <div class='search'>Search</div>
@@ -56,38 +58,38 @@ Imagine we want to create a page layout with four full height columns.
 ```
 
 ``` scss
-.grid-layout {
+.app-layout {
   display: grid; // 1
-  grid-template-columns: 25% 25% 25% 25%; // 2
+  grid-template-columns: 1fr 1fr 1fr 1fr; // 2
   grid-template-rows: 100vh; // 3
 }
 ```
 
-Here is the explanation of what we've done in the previous CSS code snippet:
+Here is the explanation of what we've done in the previous CSS snippet:
 
 1. Set the display property value to `grid`.
-* Divide the grid container into 4 columns, and each one is `25%` of that container.
+* Divide the grid container into four columns, and each one is `1fr` of that container.
 * Create one row, and set the height to be `100vh`.
 
-The Grid Layout added a new value to the `display` property which is `grid`, responsible for setting the `grid-layout` element to a grid container, and this is the foundation property, and required to start using the Grid Module.
+The Grid Layout added a new value to the `display` property which is `grid`, responsible for setting the `.app-layout` element to a grid container, and this is the foundation property, and required to start using the Grid Module.
 
-The `grid-template-columns` responsibility is to divide the `.grid-layout` container into columns, and in our case we did 4 columns each one is `25%` of the parent(container) width.
+The `grid-template-columns` responsibility is to divide the `.app-layout` container into columns, and in our case we did four columns each one is `1fr` of the parent(container) width.
 
 The `grid-template-rows` is used the layout rows, and in our example we only created one row.
 
 If wee need to create a layout with two columns and two rows, we can do:
 
 ``` css
-.grid-layout {
+.app-layout {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 50vh 50vh;
 }
 ```
 
 So this will give us a four boxes layout like:
 
-![screen shot 2015-08-29 at 12 34 18](https://cloud.githubusercontent.com/assets/626005/9561557/899242fe-4e4a-11e5-8f35-630fce7b84e6.png)
+![basic-4-column-2-rows-layout](https://cloud.githubusercontent.com/assets/626005/12037049/08932e74-ae54-11e5-8e97-1fb69aee3526.jpg)
 
 ## Grid Layout Module Concepts
 
@@ -308,17 +310,20 @@ components of the page, and finally block/inline/table layout at the
 
 ## Resources
 
-List some useful resources.
+If you want to get deeper into the Module, you can check these resources:
+
+* [CSS Grid Layout Module - W3C Working Draft](http://www.w3.org/TR/css-grid-1/)
+* [CSS Grid Layout Module Level 1 - Editor’s Draft](https://drafts.csswg.org/css-grid/)
+* [Microsoft Grid Layout](https://msdn.microsoft.com/en-gb/library/hh772052.aspx)
+* [CSS Grid Layout Examples](https://igalia.github.io/css-grid-layout/index.html)
+* [Grid by Example](http://gridbyexample.com/)
+* Follow [Rachel Andrew] for new updates and articles, she is doing a very good work regarding the Grid Module.
 
 ## Conclusion
 
 This is the conclusion
 
 [caniuse suppport]:http://caniuse.com/#feat=css-grid
-[CSS Grid Layout Module Level 1]:https://drafts.csswg.org/css-grid/
-[CSS Grid Layout Examples]:https://igalia.github.io/css-grid-layout/index.html
-[Grid by Example]:http://gridbyexample.com/
-[Microsoft Grid Layout]:https://msdn.microsoft.com/en-gb/library/hh772052.aspx
 [Block Formatting Context]:http://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
 [slack-image]:https://cloud.githubusercontent.com/assets/626005/10714425/eb63804a-7af7-11e5-91aa-11f3a8b718ad.png
 [Polyfill]:https://github.com/FremyCompany/css-grid-polyfill

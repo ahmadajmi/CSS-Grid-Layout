@@ -36,6 +36,10 @@ components of the page, and finally block/inline/table layout at the
 
 [Flexbox and Grid Layout by: Rachel Andrew](http://www.slideshare.net/rachelandrew/flexbox-and-grid-layout/89)
 
+> Grid is a companion to the Flexible Box Module (flexbox). Flexbox is designed for one-dimensional layout, so things can be arranged in an unbroken line. Grid is designed for two-dimensional layout, meaning the items don't need to sit next to each other. In the future we're likely to use both: Grid Layout for main page areas, and flexbox for the smaller UI elements it excels with.
+
+[Introducing the CSS Grid Layout spec](http://www.creativebloq.com/css3/introducing-css-grid-layout-spec-111517952)
+
 `grid span`
 
 How many grid tracks the grid item occupies
@@ -44,4 +48,3 @@ How many grid tracks the grid item occupies
 
 ## Good Resources
 [Flexbox and Grid Layout by: Rachel Andrew](http://www.slideshare.net/rachelandrew/flexbox-and-grid-layout/89)
-

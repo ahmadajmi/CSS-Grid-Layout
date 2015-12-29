@@ -1,7 +1,7 @@
 ## Outline
 
 * Introduction
-* Overview (What is CSS Grid Layout?)
+* Overview (What is CSS Grid Layout Module?)
 * Browser Support
 * Quick Example (Grid Layout Example)
 * Concepts (Grid Layout Module Concepts)
