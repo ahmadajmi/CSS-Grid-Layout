@@ -107,7 +107,7 @@ This is the basic building block.
 
 **Grid Lines**
 
-![grid-lines-mockup](https://cloud.githubusercontent.com/assets/626005/12062745/f6f9e9ca-afaa-11e5-8b5d-376c08100af2.png)
+![grid-lines-mockup](https://cloud.githubusercontent.com/assets/626005/12065042/28d70cf6-afd9-11e5-9325-4c437236a621.png)
 
 From the first example, we did four columns each one is `1fr` which will give us five vertical lines, and we did one row, which will give us two horizontal lines.
 
@@ -117,6 +117,94 @@ There are two sets of grid lines: one set defining columns (vertical axis), and 
 The horizontal and vertical dividing lines of the grid, a line exists on either side of a column or a row. We can refer to a grid line by a numerical index, or by an author-specified name, and we will get to this soon.
 
 When we are placing an element inside the container we can reference theses lines, if we want to place the header, we will put it between the first and the third vertical lines.
+
+We can mimic the default columns positions as:
+
+``` scss
+.tweets   {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row: 1;
+}
+
+.replies  {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row: 1;
+}
+
+.search   {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row: 1;
+}
+
+.messages {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row: 1;
+}
+```
+
+Let's take the `.tweet` columns and see how is things are working:
+
+1. Position the child element from the first line to the left.
+2. End the element position by line 2.
+3. Position the element to be the whole row.
+
+Let's change this by changing the order of elements with different positions, so our elements order will be (`.search`, `.replies`, `.messages`, `.tweets`).
+
+![basic-4-column-layout--revert](https://cloud.githubusercontent.com/assets/626005/12064116/a7fbaa66-afc3-11e5-8573-2268b5f01b5d.jpg)
+
+``` scss
+.search   {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row: 1;
+}
+
+.replies  {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row: 1;
+}
+
+.messages {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row: 1;
+}
+
+.tweets   {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row: 1;
+}
+```
+
+Or simply we can use the `grid-column` shortcut to set the start and end lines as:
+
+``` scss
+.search   {
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
+
+.replies  {
+  grid-column: 2 / 3;
+  grid-row: 1;
+}
+
+.messages {
+  grid-column: 3 / 4;
+  grid-row: 1;
+}
+
+.tweets   {
+  grid-column: 4 / 5;
+  grid-row: 1;
+}
+```
 
 **Grid Track**
 
@@ -190,7 +278,7 @@ and in small screen it will come in the first row in the second row
 
 ## Source-Order Independence
 
-We can rearrange the layout of elements independent of their source order, so we can achive the desired layout in different screen size, orientation. This is very useful becuse we will separete the markup from CSS and change everything from CSS without editing HTML markup anymore.
+We can rearrange the layout of elements independent of their source order, so we can achieve the desired layout in different screen size, orientation. This is very useful because we will separate the markup from CSS and change everything from CSS without editing HTML markup anymore.
 
 In the preceding example, and for small screens we want to bring the messages section to be the first one, in another way we need to move it to the first column in the first row.
 
@@ -228,14 +316,32 @@ We can also achieve the above example only on small screens by wrapping the code
 
 ## Slack Example
 
-What about using the Grid Module to implement a real example, what about creating the building blocks of the Slack layout.
+What about using the Grid Module to implement a more complex example, what about creating the building blocks of the Slack layout.
 
 Since we are interested, and talking about layouts, we can abstract and simplify the Slack design to the building blocks represented in the grid, something like this:
 
 ![slack layout](https://cloud.githubusercontent.com/assets/626005/10723155/9a454774-7bc0-11e5-9fef-add642356e63.png)
 
+We will need three vertical columns and three horizontal rows:
+
+Columns are for:
+* Teams
+* Channels
+* Header, Messages, and Input
+
+Rows:
+* Header
+* Messages
+* Input
+
+You may noticed that we have repeated Header, messages, and Input, as they are interconnected sections, we can visualize it as this diagram:
+
+![grid-lines-mockup--slack](https://cloud.githubusercontent.com/assets/626005/12065055/541c987c-afd9-11e5-8214-a2c7e0f91804.png)
+
+We will start with the layout HTML code:
+
 ```html
-<div class='slack-layout'>
+<div class='app-layout'>
     <div class='header'>Header</div>
     <div class='teams'>Teams</div>
     <div class='channels'>Channels</div>
@@ -245,14 +351,14 @@ Since we are interested, and talking about layouts, we can abstract and simplify
         <li></li>
       </ul>
     </div>
-    <div class='message-input box'>
+    <div class='input'>
       <input type='text' placeholder='CSS Grid Layout Module'>
     </div>
   </div>
 ```
 
-```css
-.slack-layout {
+```scss
+.app-layout {
   display: grid;
   height: 100vh;
   grid-template-columns: 100px 250px 1fr;
@@ -281,7 +387,7 @@ Since we are interested, and talking about layouts, we can abstract and simplify
   grid-row: 2;
 }
 
-.message-input {
+.input {
   grid-column: 3;
   grid-row: 3;
 }

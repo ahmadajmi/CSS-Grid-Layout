@@ -29,7 +29,7 @@ input {
   margin-bottom: 1em;
   background-color: #f2f2f2; }
 
-.slack-layout {
+.app-layout {
   display: grid;
   height: 100vh;
   grid-template-columns: 100px 250px 1fr;
@@ -72,6 +72,6 @@ input {
   padding: 0 1em;
   overflow-y: scroll; }
 
-.message-input {
+.input {
   grid-column: 3;
   grid-row: 3; }
