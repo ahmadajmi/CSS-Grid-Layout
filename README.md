@@ -71,11 +71,13 @@ Here is the explanation of what we've done in the previous CSS snippet:
 * Divide the grid container into four columns, and each one is `1fr` of that container.
 * Create one row, and set the height to be `100vh`.
 
-The Grid Layout added a new value to the `display` property which is `grid`, responsible for setting the `.app-layout` element to a grid container, and this is the foundation property, and required to start using the Grid Module.
+The Grid Layout added a new value to the `display` property which is `grid`, responsible for setting the `.app-layout` element to be a grid container, this is the foundation property, and required to start using the Grid.
 
-The `grid-template-columns` responsibility is to divide the `.app-layout` container into columns, and in our case we did four columns each one is `1fr` of the parent(container) width.
+The `grid-template-columns` responsibility is to divide the `.app-layout` container into columns, and in our case we did four columns each one is `1fr` [(one fraction)](http://www.w3.org/TR/2011/WD-css3-values-20110906/#fr-unit) of the available parent(container) space.
 
-The `grid-template-rows` is used the layout rows, and in our example we only created one row.
+The `grid-template-rows` is used to layout rows, and in our example we only created one row to be 100vh (full viewport height).
+
+
 
 If wee need to create a layout with two columns and two rows, we can do:
 
@@ -93,21 +95,26 @@ So this will give us a four boxes layout like:
 
 ## Grid Layout Module Concepts
 
-After we have seen some practical examples, there are some new concepts that we need to know for a better understanding the new Module.
+After we have seen some practical examples, there are lots of new concepts, we will get to know some of them in this article, that we need to know for a better understanding the new Module.
 
-**Grid Element**
+**Grid Container**
+
+<!-- this sections needs some more info review
+    http://www.w3.org/TR/css-grid-1/#grid-model
+-->
 
 This is the basic building block.
 
 **Grid Lines**
 
-![grid-lines](https://cloud.githubusercontent.com/assets/626005/9755781/266a84f0-56d5-11e5-92f4-cc40fb3154d8.png)
+![grid-lines-mockup](https://cloud.githubusercontent.com/assets/626005/12062745/f6f9e9ca-afaa-11e5-8b5d-376c08100af2.png)
 
-We have 3 vertical lines, and 4 horizontal lines.
+From the first example, we did four columns each one is `1fr` which will give us five vertical lines, and we did one row, which will give us two horizontal lines.
 
-The horizontal and vertical dividing lines of the grid, a line exists on either side of a column or a row. We can refer to a grid line by a numerical index, or by an author-specified name.
-
+<!-- this sections needs some review -->
 There are two sets of grid lines: one set defining columns (vertical axis), and another set defining rows (horizontal axis).
+
+The horizontal and vertical dividing lines of the grid, a line exists on either side of a column or a row. We can refer to a grid line by a numerical index, or by an author-specified name, and we will get to this soon.
 
 When we are placing an element inside the container we can reference theses lines, if we want to place the header, we will put it between the first and the third vertical lines.
 
