@@ -31,5 +31,28 @@ By combining media queries with the CSS properties that control layout of the gr
 
 A very interesting feature of the Grid Module is the ability to adapt the content layout to changes in different devices and viewports without changing the semantic of the content.
 
+#### The Explicit Grid
+
+Defined by 3 properties
+
+`grid-template-rows` is a space separated track list which includes line names and sizing functions of the grid rows.
+
+`grid-template-columns` specifies the column information as for rows property
+
+`grid-template-areas` specifies named areas which are not associated with any particular grid item. Also useful to visualize the grid
+
 ## Grid Layout Example
 and will create a new **grid formatting context** for it's contents. The grid formatting context is the same as the [Block Formatting Context], except that the grid layout is used instead of the block layout.
+
+
+Columns are for:
+* Teams
+* Channels
+* Header, Messages, and Input
+
+Rows:
+* Header
+* Messages
+* Input
+
+You may noticed that we have repeated Header, messages, and Input, as they are interconnected sections, we can visualize it as this diagram:

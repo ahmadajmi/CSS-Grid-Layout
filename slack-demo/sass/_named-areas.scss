@@ -3,6 +3,11 @@
   height: 100vh;
   grid-template-columns: 100px 250px 1fr;
   grid-template-rows: auto 1fr auto;
+
+  grid-template-areas: "teams channels header"
+                       "teams channels messages"
+                       "teams channels messages"
+                       "teams channels input";
 }
 
 .header     { background-color: #ffffff; }
@@ -12,30 +17,25 @@
 .write      { background-color: #f2f2f2; }
 
 .teams {
-  grid-column: 1;
-  grid-row: 1 / 4;
+  grid-area: teams;
 }
 
 .channels {
-  grid-column: 2;
-  grid-row: 1 / 4;
+  grid-area: channels;
 }
 
 .header {
-  grid-column: 3;
-  grid-row: 1;
+  grid-area: header;
   color: #333;
   border-bottom: 1px solid #f2f2f2;
 }
 
 .messages {
-  grid-column: 3;
-  grid-row: 2;
+  grid-area: messages;
   padding: 0 1em;
   overflow-y: scroll;
 }
 
 .input {
-  grid-column: 3;
-  grid-row: 3;
+  grid-area: input;
 }

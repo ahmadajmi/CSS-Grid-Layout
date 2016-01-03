@@ -50,21 +50,19 @@ input {
 .write {
   background-color: #f2f2f2; }
 
+.teams {
+  grid-column: 1;
+  grid-row: 1 / 4; }
+
+.channels {
+  grid-column: 2;
+  grid-row: 1 / 4; }
+
 .header {
   grid-column: 3;
   grid-row: 1;
   color: #333;
   border-bottom: 1px solid #f2f2f2; }
-
-.teams {
-  grid-column: 1;
-  grid-row-start: 1;
-  grid-row-end: span 3; }
-
-.channels {
-  grid-column: 2;
-  grid-row-start: 1;
-  grid-row-end: span 3; }
 
 .messages {
   grid-column: 3;
@@ -75,3 +73,44 @@ input {
 .input {
   grid-column: 3;
   grid-row: 3; }
+
+.app-layout {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 100px 250px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "teams channels header" "teams channels messages" "teams channels messages" "teams channels input"; }
+
+.header {
+  background-color: #ffffff; }
+
+.teams {
+  background-color: #362233; }
+
+.channels {
+  background-color: #52364E; }
+
+.messages {
+  background-color: #ffffff; }
+
+.write {
+  background-color: #f2f2f2; }
+
+.teams {
+  grid-area: teams; }
+
+.channels {
+  grid-area: channels; }
+
+.header {
+  grid-area: header;
+  color: #333;
+  border-bottom: 1px solid #f2f2f2; }
+
+.messages {
+  grid-area: messages;
+  padding: 0 1em;
+  overflow-y: scroll; }
+
+.input {
+  grid-area: input; }

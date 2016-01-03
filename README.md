@@ -77,8 +77,6 @@ The `grid-template-columns` responsibility is to divide the `.app-layout` contai
 
 The `grid-template-rows` is used to layout rows, and in our example we only created one row to be 100vh (full viewport height).
 
-
-
 If wee need to create a layout with two columns and two rows, we can do:
 
 ``` css
@@ -224,22 +222,12 @@ Grid items are the child elements of the grid container, and the contents of the
 
 The space used to layout one or more grid items bound by 4 grid lines.
 
-#### The Explicit Grid
-
-Defined by 3 properties
-
-`grid-template-rows` is a space separated track list which includes line names and sizing functions of the grid rows.
-
-`grid-template-columns` specifies the column information as for rows property
-
-`grid-template-areas` specifies named areas which are not associated with any particular grid item. Also useful to visualize the grid
-
 ## Using grid-template-areas
 
-Another option is to sue the `grid-template-areas` to divide the page sections into areas, each area with a specific name.
+Another option is to use the `grid-template-areas` to divide the page sections into areas, each area with a specific name.
 
-``` css
-.grid {
+``` scss
+.app-layout {
   display: grid;
   /*
   the first row is :  tweets replies
@@ -265,13 +253,12 @@ Another option is to sue the `grid-template-areas` to divide the page sections i
   }
 }
 
-/* Instead of doing this */
+// Instead of doing this
 .tweets { grid-column: 2; grid-row: 1; }
 
-/* we can do this instead and give it the name of the area in which we want to place in and in this case the replied area
-So the tweets section will come in the second column in the first row
-and in small screen it will come in the first row in the second row
-*/
+// we can do this instead and give it the name of the area in which we want to // place in and in this case the replied area
+// So the tweets section will come in the second column in the first row
+// and in small screen it will come in the first row in the second row
 
 .tweets { grid-area: replies; }
 ```
@@ -316,25 +303,13 @@ We can also achieve the above example only on small screens by wrapping the code
 
 ## Slack Example
 
-What about using the Grid Module to implement a more complex example, what about creating the building blocks of the Slack layout.
+What about using the Grid Module to implement a more complex example, what about creating the building blocks of the [Slack](https://slack.com/) application layout.
 
-Since we are interested, and talking about layouts, we can abstract and simplify the Slack design to the building blocks represented in the grid, something like this:
+Since we are talking about layouts, we will abstract and simplify the Slack design to the building blocks represented in the grid, something like this:
 
 ![slack layout](https://cloud.githubusercontent.com/assets/626005/10723155/9a454774-7bc0-11e5-9fef-add642356e63.png)
 
-We will need three vertical columns and three horizontal rows:
-
-Columns are for:
-* Teams
-* Channels
-* Header, Messages, and Input
-
-Rows:
-* Header
-* Messages
-* Input
-
-You may noticed that we have repeated Header, messages, and Input, as they are interconnected sections, we can visualize it as this diagram:
+From this layout we will create three vertical columns and three horizontal rows, and we can visualize it as this diagram:
 
 ![grid-lines-mockup--slack](https://cloud.githubusercontent.com/assets/626005/12065055/541c987c-afd9-11e5-8214-a2c7e0f91804.png)
 
@@ -342,9 +317,9 @@ We will start with the layout HTML code:
 
 ```html
 <div class='app-layout'>
-    <div class='header'>Header</div>
     <div class='teams'>Teams</div>
     <div class='channels'>Channels</div>
+    <div class='header'>Header</div>
     <div class='messages'>
       <ul class='message-list'>
         <li></li>
@@ -365,21 +340,19 @@ We will start with the layout HTML code:
   grid-template-rows: auto 1fr auto;
 }
 
-.header {
-  grid-column: 3;
-  grid-row: 1;
-}
-
 .teams {
   grid-column: 1;
-  grid-row-start: 1;
-  grid-row-end: span 3;
+  grid-row: 1 / 4;
 }
 
 .channels {
   grid-column: 2;
-  grid-row-start: 1;
-  grid-row-end: span 3;
+  grid-row: 1 / 4;
+}
+
+.header {
+  grid-column: 3;
+  grid-row: 1;
 }
 
 .messages {
@@ -391,10 +364,47 @@ We will start with the layout HTML code:
   grid-column: 3;
   grid-row: 3;
 }
-
 ```
 
-Demo: http://codepen.io/ahmadajmi/pen/Qjxvqj
+[Demo](http://codepen.io/ahmadajmi/pen/YwNrNG)
+
+Using Named Areas
+
+```scss
+.app-layout {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 100px 250px 1fr;
+
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "teams channels header"
+                       "teams channels messages"
+                       "teams channels messages"
+                       "teams channels input";
+}
+
+.teams {
+  grid-area: teams;
+}
+
+.channels {
+  grid-area: channels;
+}
+
+.header {
+  grid-area: header;
+}
+
+.messages {
+  grid-area: messages;
+}
+
+.input {
+  grid-area: input;
+}
+```
+
+[Demo](http://codepen.io/ahmadajmi/pen/gPgGgR)
 
 ## Grid Layout Module vs Flexbox
 
