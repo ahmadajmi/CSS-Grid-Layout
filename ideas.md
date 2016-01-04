@@ -31,6 +31,8 @@ By combining media queries with the CSS properties that control layout of the gr
 
 A very interesting feature of the Grid Module is the ability to adapt the content layout to changes in different devices and viewports without changing the semantic of the content.
 
+The `grid-template-columns` responsibility is to divide the `.app-layout` container into columns, and in our case we did four columns each one is `1fr` [(one fraction)](http://www.w3.org/TR/2011/WD-css3-values-20110906/#fr-unit) of the available parent(container) space.
+
 #### The Explicit Grid
 
 Defined by 3 properties
@@ -40,6 +42,10 @@ Defined by 3 properties
 `grid-template-columns` specifies the column information as for rows property
 
 `grid-template-areas` specifies named areas which are not associated with any particular grid item. Also useful to visualize the grid
+
+**Grid Item**
+
+Grid items are the child elements of the grid container, and the contents of the grid container consists of zero or more grid items.
 
 ## Grid Layout Example
 and will create a new **grid formatting context** for it's contents. The grid formatting context is the same as the [Block Formatting Context], except that the grid layout is used instead of the block layout.

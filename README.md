@@ -68,14 +68,14 @@ We start with the HTMl code:
 Here is the explanation of what we've done in the previous CSS snippet:
 
 1. Set the display property value to `grid`.
-* Divide the grid container into four columns, and each one is `1fr` of that container.
-* Create one row, and set the height to be `100vh`.
+* Divide the grid container into four columns, and each one is `1fr` of the free space in the grid container.
+* Create one row, and set the height to be `100vh` (full viewport height).
 
 The Grid Layout added a new value to the `display` property which is `grid`, responsible for setting the `.app-layout` element to be a grid container, this is the foundation property, and required to start using the Grid.
 
-The `grid-template-columns` responsibility is to divide the `.app-layout` container into columns, and in our case we did four columns each one is `1fr` [(one fraction)](http://www.w3.org/TR/2011/WD-css3-values-20110906/#fr-unit) of the available parent(container) space.
+The `grid-template-columns` specifies the width of each grid column within the Grid, and in our case it divides the `.app-layout` container into four columns, each one is `1fr` [(one fraction)](http://www.w3.org/TR/2011/WD-css3-values-20110906/#fr-unit) of the available space.
 
-The `grid-template-rows` is used to layout rows, and in our example we only created one row to be 100vh (full viewport height).
+The `grid-template-rows` specifies the height of each grid row in the Grid, and in our example we only created one row to be `100vh`.
 
 If wee need to create a layout with two columns and two rows, we can do:
 
@@ -102,6 +102,10 @@ After we have seen some practical examples, there are lots of new concepts, we w
 -->
 
 This is the basic building block.
+
+**Grid Item**
+
+Grid items are the child elements of the Grid container, like `.tweets` and `.replies` elements.
 
 **Grid Lines**
 
@@ -213,10 +217,6 @@ A generic term of for a grid column or grid row, or it's the space between to ad
 **Grid Cell**
 
 The smallest unit of the grid that can be referenced when positioning grid lines. It is the space between two adjacent row and two adjacent column grid lines, or the space between 4 grid lines.
-
-**Grid Item**
-
-Grid items are the child elements of the grid container, and the contents of the grid container consists of zero or more grid items.
 
 **Grid Area**
 
@@ -408,7 +408,7 @@ Using Named Areas
 
 ## Grid Layout Module vs Flexbox
 
-Since many of us have used flexbox before, one question would come to mind to say: When can I user flexbox and when can I use the Grid Module?
+Since many of us have used Flexbox before, one question would come to mind to say: When can I user Flexbox and when can I use the Grid Module?
 
 There are a pretty good answers I read about the difference, one from [Tab Atkins], and the other one from [Rachel Andrew], which I find pretty useful.
 
