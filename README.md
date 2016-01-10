@@ -2,7 +2,7 @@
 
 Back to the old days of creating web pages, we used HTML tables to create page layout, and then we started to use some CSS properties like floats combined with clearfix, and box-sizing. Another option is to use a CSS framework to help us create the complex layouts we need.
 
-As web applications becomes more and more complex in different domains including layouts and responsive design, we need as web developers a more natural, and native way to do complex layouts easily without any hacks and workarounds. Fortunately a new and exciting solution for creating layouts comes with [CSS Grid Layout Module](http://www.w3.org/TR/css-grid-1/).
+As Web Applications becomes more and more complex in different domains including layouts and responsive design, we need as web developers a more natural, and native way to do complex layouts easily without any hacks and workarounds. Fortunately an exciting new  solution for creating layouts comes with [CSS Grid Layout Module](http://www.w3.org/TR/css-grid-1/).
 
 In this introduction we will discover the new **CSS Grid Layout Module**, the current browser support, and how it works with some practical examples.
 
@@ -10,7 +10,7 @@ In this introduction we will discover the new **CSS Grid Layout Module**, the cu
 
 The core idea behind the Grid Layout is to divide the web page into columns and rows, and then we have the ability to position and size the building block elements based on the rows and columns we have created in terms of size, position and layer.
 
-The Grid also gives us a flexible way to change layout elements position with CSS at different breakpoints using media queries without any change to HTML structure.
+The Grid also gives us a flexible way to change layout elements position with only CSS at different breakpoints using media queries without any change to HTML structure.
 
 ## Browser Support
 
@@ -36,17 +36,17 @@ Navigate to `about:config` URL, search for `layout.css.grid.enabled` flag, then 
 
 ##### Polyfill
 
-A [Polyfill] is currently available.
+A [Polyfill] is also available to provide a working implementation of the Grid Module for current browsers.
 
 ## Grid Layout Example
 
 Let's start with an example to see the power of the Grid Module, and then we will explain some concepts in more details.
 
-Imagine we want to create a Twitter application with four full height columns layout (Tweets, Replies, Search, and Messages), something abstracted and  similar to the screenshot below.
+Imagine we want to create a client application for Twitter with four full height columns layout (Tweets, Replies, Search, and Messages), something abstracted and similar to the screenshot below.
 
 ![basic-4-column-layout](https://cloud.githubusercontent.com/assets/626005/12036357/f7d0aeaa-ae4d-11e5-87d9-b61af7df781d.jpg)
 
-We start with the HTMl code:
+Application markup will be something like this:
 
 ``` html
 <div class='app-layout'>
@@ -57,6 +57,8 @@ We start with the HTMl code:
 </div>
 ```
 
+Then we will apply our CSS code on the `.app-layout` container:
+
 ``` scss
 .app-layout {
   display: grid; // 1
@@ -65,15 +67,15 @@ We start with the HTMl code:
 }
 ```
 
-Here is the explanation of what we've done in the previous CSS snippet:
+Here is the explanation of what we've done in the previous CSS code:
 
 1. Set the display property value to `grid`.
-* Divide the grid container into four columns, and each one is `1fr` of the free space in the grid container.
-* Create one row, and set the height to be `100vh` (full viewport height).
+2. Divide the grid container into four columns, and each one is `1fr` [(one fraction)](http://www.w3.org/TR/2011/WD-css3-values-20110906/#fr-unit) of the free space in the grid container.
+3. Create one row, and set the height to be `100vh` (full viewport height).
 
-The Grid Layout added a new value to the `display` property which is `grid`, responsible for setting the `.app-layout` element to be a grid container, this is the foundation property, and required to start using the Grid.
+The new Grid Layout added a new value to the `display` property which is `grid`, responsible for setting the `.app-layout` element to be a grid container, this is the foundation property, and required to start using the Grid.
 
-The `grid-template-columns` specifies the width of each grid column within the Grid, and in our case it divides the `.app-layout` container into four columns, each one is `1fr` [(one fraction)](http://www.w3.org/TR/2011/WD-css3-values-20110906/#fr-unit) of the available space.
+The `grid-template-columns` specifies the width of each grid column within the Grid, and in our case it divides the `.app-layout` container into four columns, each one is `1fr` of the available space.
 
 The `grid-template-rows` specifies the height of each grid row in the Grid, and in our example we only created one row to be `100vh`.
 
@@ -93,7 +95,7 @@ So this will give us a four boxes layout like:
 
 ## Grid Layout Module Concepts
 
-After we have seen some practical examples, there are lots of new concepts, we will get to know some of them in this article, that we need to know for a better understanding the new Module.
+After we have seen a practical example, there are some new concepts that we need to know for a better understanding the new Module.
 
 **Grid Container**
 
@@ -148,13 +150,13 @@ We can mimic the default columns positions as:
 }
 ```
 
-Let's take the `.tweet` columns and see how is things are working:
+Let's take the `.tweet` column and see how the position is working:
 
 1. Position the child element from the first line to the left.
 2. End the element position by line 2.
-3. Position the element to be the whole row.
+3. Position the element inside the whole row.
 
-Let's change this by changing the order of elements with different positions, so our elements order will be (`.search`, `.replies`, `.messages`, `.tweets`).
+Let's change this by changing the order of elements with different positions, so our elements order will be: `.search`, `.replies`, `.messages`, and `.tweets`.
 
 ![basic-4-column-layout--revert](https://cloud.githubusercontent.com/assets/626005/12064116/a7fbaa66-afc3-11e5-8573-2268b5f01b5d.jpg)
 
@@ -309,7 +311,7 @@ Since we are talking about layouts, we will abstract and simplify the Slack desi
 
 ![slack layout](https://cloud.githubusercontent.com/assets/626005/10723155/9a454774-7bc0-11e5-9fef-add642356e63.png)
 
-From this layout we will create three vertical columns and three horizontal rows, and we can visualize it as this diagram:
+From this layout we will create three vertical columns, and three horizontal rows, and we can visualize it as:
 
 ![grid-lines-mockup--slack](https://cloud.githubusercontent.com/assets/626005/12065055/541c987c-afd9-11e5-8214-a2c7e0f91804.png)
 
@@ -366,7 +368,7 @@ We will start with the layout HTML code:
 }
 ```
 
-[Demo](http://codepen.io/ahmadajmi/pen/YwNrNG)
+Demo: [Slack layout using CSS Grid](http://codepen.io/ahmadajmi/pen/YwNrNG)
 
 Using Named Areas
 
@@ -404,7 +406,7 @@ Using Named Areas
 }
 ```
 
-[Demo](http://codepen.io/ahmadajmi/pen/gPgGgR)
+Demo: [Slack layout using CSS Grid - Named Areas](http://codepen.io/ahmadajmi/pen/gPgGgR)
 
 ## Grid Layout Module vs Flexbox
 
