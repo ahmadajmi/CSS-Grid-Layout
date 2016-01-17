@@ -217,44 +217,29 @@ We can rearrange the layout of elements independent of their source order, so we
 
 ## Position Items by Using Named Areas
 
-Another option to position an item is to use the `grid-template-areas` to divide the page sections into areas, each area with a specific name.
+A grid area is the logical space used to layout one or more grid items, we can name a grid area explicitly using the `grid-template-areas` property, then we can place a grid item into a specific area using the `grid-area` property.
 
-``` scss
+To make the concept more clear, let's redo our four columns example, with columns reorder as `search` columns comes first.
+
+``` csss
 .app-layout {
   display: grid;
-  /*
-  the first row is :  tweets replies
-  the second row is: search messgaes
-  and each word in the row represents a column
-   */  
-  grid-template-areas: "tweets replies"
-                       "search messgaes";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 100vh;
 
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 50vh 50vh;
+  // We did four grid areas, each one for a column
+  // Each word separated by a space represents a column
+  grid-template-areas: "search replies messages tweets";
 }
 
-@media screen and (max-width: 1024px) {
-  .grid {
-    display: grid;
-
-    grid-template-areas: "messages search"
-                         "replies tweets";
-
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50vh 50vh;
-  }
-}
-
-// Instead of doing this
-.tweets { grid-column: 2; grid-row: 1; }
-
-// we can do this instead and give it the name of the area in which we want to // place in and in this case the replied area
-// So the tweets section will come in the second column in the first row
-// and in small screen it will come in the first row in the second row
-
-.tweets { grid-area: replies; }
+// Place each grid item into a specific area
+.search { grid-area: search; }
+.replies { grid-area: replies; }
+.messages { grid-area: messages; }
+.tweets { grid-area: tweets; }
 ```
+
+Demo: [4 columns layout using CSS Grid - grid-area](http://codepen.io/ahmadajmi/pen/xZXQmo?editors=110)
 
 ## Responsive Design
 
@@ -344,7 +329,6 @@ Demo: [Slack layout using CSS Grid](http://codepen.io/ahmadajmi/pen/YwNrNG)
   display: grid;
   height: 100vh;
   grid-template-columns: 100px 250px 1fr;
-
   grid-template-rows: auto 1fr auto;
   grid-template-areas: "teams channels header"
                        "teams channels messages"
@@ -379,7 +363,7 @@ Demo: [Slack layout using CSS Grid - Named Areas](http://codepen.io/ahmadajmi/pe
 
 Since many of us have used Flexbox before, one question would come to mind to say: When can I user Flexbox and when can I use the Grid Module?
 
-There are a pretty good answers I read about the difference, one from [Tab Atkins], and the other one from [Rachel Andrew], which I find pretty useful.
+Theres are a pretty good answers I read about the difference, one from [Tab Atkins], and the other one from [Rachel Andrew], which I find pretty useful.
 
 > Flexbox is appropriate for many layouts, and a lot of "page component"
 elements, as most of them are fundamentally linear.  Grid is
