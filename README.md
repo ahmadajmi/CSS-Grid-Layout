@@ -219,7 +219,7 @@ We can rearrange the layout of elements independent of their source order, so we
 
 A grid area is the logical space used to layout one or more grid items, we can name a grid area explicitly using the `grid-template-areas` property, then we can place a grid item into a specific area using the `grid-area` property.
 
-To make the concept more clear, let's redo our four columns example, with columns reorder as `search` columns comes first.
+To make the concept more clear, let's redo our four columns example, with columns reorder as `search` column comes first.
 
 ``` csss
 .app-layout {
@@ -227,12 +227,15 @@ To make the concept more clear, let's redo our four columns example, with column
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 100vh;
 
-  // We did four grid areas, each one for a column
+  // We divided the grid container into four grid areas, each one for a column
   // Each word separated by a space represents a column
   grid-template-areas: "search replies messages tweets";
 }
+```
 
-// Place each grid item into a specific area
+The next step is to position each grid item:
+
+``` scss
 .search { grid-area: search; }
 .replies { grid-area: replies; }
 .messages { grid-area: messages; }
@@ -359,6 +362,24 @@ Demo: [Slack layout using CSS Grid](http://codepen.io/ahmadajmi/pen/YwNrNG)
 
 Demo: [Slack layout using CSS Grid - Named Areas](http://codepen.io/ahmadajmi/pen/gPgGgR)
 
+In a small screen we can position all child elements on top of each other, this will require us to modify the columns, rows, and areas like this:
+
+```
+@media screen and (max-width: 1024px) {
+  .app-layout {
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto 1fr auto;
+    grid-template-areas: "header"
+                         "teams"
+                         "channels"
+                         "messages"
+                         "input";
+  }
+}
+```
+
+Demo: [Slack layout using CSS Grid - Named Areas - Small Screen](http://codepen.io/ahmadajmi/pen/gPgGgR?editors=110)
+
 ## Grid Layout Module vs Flexbox
 
 Since many of us have used Flexbox before, one question would come to mind to say: When can I user Flexbox and when can I use the Grid Module?
@@ -384,6 +405,10 @@ components of the page, and finally block/inline/table layout at the
 
 [Flexbox and Grid Layout by: Rachel Andrew](http://www.slideshare.net/rachelandrew/flexbox-and-grid-layout/89)
 
+## Conclusion
+
+Yes, the new Grid Module is awesome in different areas like: less code we have to write, the power of changing the layout only with CSS, responsive design, and I advice everyone to give it a try.
+
 ## Resources
 
 If you want to get deeper into the Module, you can check these great resources:
@@ -394,10 +419,6 @@ If you want to get deeper into the Module, you can check these great resources:
 * [CSS Grid Layout Examples](https://igalia.github.io/css-grid-layout/index.html)
 * [Grid by Example](http://gridbyexample.com/)
 * Follow [Rachel Andrew] for new updates and articles, she is doing a great work regarding the Grid Module.
-
-## Conclusion
-
-Yes, the new Grid Module is awesome in different areas like: less code we have to write, the power of changing the layout only with CSS, responsive design, and I advice everyone to give it a try.
 
 [caniuse suppport]:http://caniuse.com/#feat=css-grid
 [Block Formatting Context]:http://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
