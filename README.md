@@ -99,6 +99,20 @@ So this will give us a four boxes layout like:
 
 ![basic-4-column-2-rows-layout](https://cloud.githubusercontent.com/assets/626005/12037049/08932e74-ae54-11e5-8e97-1fb69aee3526.jpg)
 
+We can also achieve the above example only on small screens by wrapping the code inside Media Queries. This opens a great opportunity for us to customize the layout differently in different viewports. For example, we can create the previous layout only on screens less than `1024px` as:
+
+``` css
+@media screen and (max-width: 1024px) {
+  .app-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50vh 50vh;
+  }
+}
+```
+
+Demo: [4 boxes layout using CSS Grid - Responsive](http://codepen.io/ahmadajmi/pen/XXzXVW?editors=110)
+
 ## Grid Layout Module Concepts
 
 After we have did our first example, there are some new concepts that we need to know for a better understanding the new Module. There are a lot of new concepts, we will only take a look at a few of them.
@@ -243,20 +257,6 @@ The next step is to position each grid item:
 ```
 
 Demo: [4 columns layout using CSS Grid - grid-area](http://codepen.io/ahmadajmi/pen/xZXQmo?editors=110)
-
-## Responsive Design
-
-We can also achieve the above example only on small screens by wrapping the code inside Media Queries. This opens a great opportunity for us to customize the layout differently in different viewports. For example, we can create the previous layout only on screens less than `1024px` as:
-
-``` css
-@media screen and (max-width: 1024px) {
-  .grid-layout {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50vh 50vh;
-  }
-}
-```
 
 ## Slack Example
 
